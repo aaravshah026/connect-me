@@ -5,7 +5,7 @@ import datetime
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def get_date(pairing_date):
-    # formatted as a string either "mm-dd-yyyy" or "mm/dd/yyyy", with the year being either 2 or 4 digits
+    # formatted as a string either "mm-dd-yyyy" or "mm/dd/yyyy"
     # returns three integers representing the month, day, and year of the string literal
     try:
         if pairing_date[1] == '-' or pairing_date[1] == '/':
@@ -26,11 +26,11 @@ def get_date(pairing_date):
     except:
         return -1, -1, -1
 def between_dates(bY, bM, bD, eY, eM, eD, mY, mM, mD):
-    # return true if the date 'm' is in range ('b', 'e'], false otherwise
+    # return true if the date 'm' is in range []'b', 'e'], false otherwise
     beginning_date = datetime.date(bY, bM, bD)
     middle_date = datetime.date(mY, mM, mD)
     end_date = datetime.date(eY, eM, eD)
-    return ((end_date - middle_date).days >= 0) and ((middle_date - beginning_date).days > 0)
+    return ((end_date - middle_date).days >= 0) and ((middle_date - beginning_date).days >= 0)
 def date_difference(date1, date2):
     # returns the difference in days between two date strings
     # example: date1 = "5/30/2024", date2 = "6/1/2024", return 2
@@ -150,12 +150,8 @@ def gather_data(dfs, beginning_date, end_date):
     json.dump(out, outfile)
     outfile.close()
 
-tutor_data_person1 = pd.read_csv("pathfile_to_person1.csv")
-tutor_data_person2 = pd.read_csv("pathfile_to_person2.csv")
-tutor_data_person3 = pd.read_csv("pathfile_to_person3.csv")
-tutor_data_person4 = pd.read_csv("pathfile_to_person4.csv")
+tutor_data_example = pd.read_csv("file path to .csv file here")
+tutor_data = [["Example", tutor_data_example]]
+# add ["name", pd.DataFrame] pairs for each person!
 
-tutor_data = [["Person 1", tutor_data_person1], ["Person 2", tutor_data_person2], ["Person 3", tutor_data_person3], ["Person 4", tutor_data_person4]]
-# change to correct names and path locations!
-
-gather_data(tutor_data, beginning_date="4-1-2024", end_date="6-23-2024")
+gather_data(tutor_data, beginning_date="1-1-2024", end_date=None)
