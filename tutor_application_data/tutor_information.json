@@ -1,0 +1,33 @@
+{
+    "Tutor application data from 1-1-2024 to 6-25-2024": {},
+    "Total number of tutors assigned:": {
+        "Example": 6
+    },
+    "Average number of days to send the initial email:": {
+        "Example": 0.0
+    },
+    "Percentage of tutors passing the initial screening:": {
+        "Example": "83.33%"
+    },
+    "Percentage of tutors that schedule interviews:": {
+        "Example": "80.0%"
+    },
+    "Percentage of tutors that show up for interviews:": {
+        "Example": "75.0%"
+    },
+    "Average number of days to send interview results email:": {
+        "Example": 0.0
+    },
+    "Percentage of tutors that pass their interview:": {
+        "Example": "66.67%"
+    },
+    "Percentage of accepted tutors that join the Discord:": {
+        "Example": "50.0%"
+    },
+    "Percentage of tutors that pass the whole process:": {
+        "Example": "16.67%"
+    },
+    "Total number of tutors accepted:": {
+        "Example": 1
+    }
+}
