@@ -5,7 +5,7 @@ import datetime
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def get_date(pairing_date):
-    # formatted as a string either "mm-dd-yyyy" or "mm/dd/yyyy"
+    # formatted as a string either "mm-dd-yyyy" or "mm/dd/yyyy", with the year being either 2 or 4 digits
     # returns three integers representing the month, day, and year of the string literal
     try:
         if pairing_date[1] == '-' or pairing_date[1] == '/':
@@ -150,11 +150,12 @@ def gather_data(dfs, beginning_date, end_date):
     json.dump(out, outfile)
     outfile.close()
 
-tutor_data_aarav = pd.read_csv("/Users/aaravashah/Tutor Applications Logs - S5_ Aarav.csv")
-tutor_data_celine = pd.read_csv("/Users/aaravashah/Tutor Applications Logs - S5_ Celine.csv")
-tutor_data_hasini = pd.read_csv("/Users/aaravashah/Tutor Applications Logs - S5_ Hasini.csv")
-tutor_data_silvana = pd.read_csv("/Users/aaravashah/Tutor Applications Logs - S5_ Silvana.csv")
-tutor_data = [["Aarav", tutor_data_aarav], ["Celine", tutor_data_celine], ["Hasini", tutor_data_hasini], ["Silvana", tutor_data_silvana]]
-# change to correct path locations!
+tutor_data_person1 = pd.read_csv("pathfile_to_person1.csv")
+tutor_data_person2 = pd.read_csv("pathfile_to_person2.csv")
+tutor_data_person3 = pd.read_csv("pathfile_to_person3.csv")
+tutor_data_person4 = pd.read_csv("pathfile_to_person4.csv")
+
+tutor_data = [["Person 1", tutor_data_person1], ["Person 2", tutor_data_person2], ["Person 3", tutor_data_person3], ["Person 4", tutor_data_person4]]
+# change to correct names and path locations!
 
 gather_data(tutor_data, beginning_date="4-1-2024", end_date="6-23-2024")
