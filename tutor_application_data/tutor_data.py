@@ -5,6 +5,8 @@ import datetime
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def get_date(str_date):
+    if str_date == None:
+        return datetime.datetime.now()
     try:
         return datetime.datetime.strptime(str_date, "%m/%d/%Y")
     except:
@@ -35,9 +37,10 @@ def filter_data(df, beginning_date, end_date):
     # dataframe row iteration
     for row in df.index:
         assigned_date = get_date(df.loc[row, "Date Assigned"])
+
         # add row to filtered_df if "Date Assigned" is between beginning and end dates
-        print(beginning_date, assigned_date, end_date)
         if assigned_date != None and between_dates(beginning_date, assigned_date, end_date):
+
             # don't add row to filtered_df if the interview is scheduled for a future date (ie. process isn't complete)
             if date_difference(datetime.datetime.now(), get_date(df.loc[row, "Interview Date"])) < 0:
                 filtered_df.loc[filtered_df_row] = df.loc[row]
@@ -48,7 +51,7 @@ def filter_data(df, beginning_date, end_date):
 
 def gather_data(dfs, beginning_date, end_date):
     beginning_date = get_date(beginning_date)
-    end_date = datetime.datetime.now() if end_date == None else end_date
+    end_date = get_date(end_date)
 
     # metrics to evaluate
     number_tutors_assigned = {}
@@ -67,7 +70,6 @@ def gather_data(dfs, beginning_date, end_date):
         interviewer = name_df_pair[0]
         df = name_df_pair[1]
         df = filter_data(df, beginning_date=beginning_date, end_date=end_date)
-        print(df)
 
         # individual data variables to put into dictionaries later
         num_tutors = 0
@@ -97,11 +99,11 @@ def gather_data(dfs, beginning_date, end_date):
 
         # putting it all together
         number_tutors_assigned[interviewer] = num_tutors
-        time_initial_email[interviewer] = round(total_initial_email / num_tutors, 2)
+        time_initial_email[interviewer] = str(round(total_initial_email / num_tutors, 2)) + " days"
         percent_initial_accepted[interviewer] = str(round(num_initial_accepted / num_tutors * 100, 2)) + "%"
         percent_schedule_interview[interviewer] = str(round(num_scheduled_interview / num_initial_accepted * 100, 2)) + "%"
         percent_show_interview[interviewer] = str(round(num_show_interview / num_scheduled_interview * 100, 2)) + "%"
-        time_interview_results_email[interviewer] = round(time_welcome_email / num_show_interview, 2)
+        time_interview_results_email[interviewer] = str(round(time_welcome_email / num_show_interview, 2)) + " days"
         percent_pass_interview[interviewer] = str(round(num_pass_interview / num_show_interview * 100, 2)) + "%"
         percent_join_discord[interviewer] = str(round(num_join_discord / num_pass_interview * 100, 2)) + "%"
         percent_accepted[interviewer] = str(round(num_join_discord / num_tutors * 100, 2)) + "%"
