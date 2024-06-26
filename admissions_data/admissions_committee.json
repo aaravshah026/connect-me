@@ -1,0 +1,32 @@
+{
+    "Pairing data from 01/01/2024 to 06/26/2024": {},
+    "Average Accepted Pairing Time": {
+        "pairer 1": 6.75,
+        "pairer 2": 4.0,
+        "pairer 3": 0.67,
+        "pairer 4": 1.33,
+        "pairer 5": 0.5,
+        "pairer 6": 2.0,
+        "pairer 7": 3.5,
+        "COMMITTEE": 2.94
+    },
+    "Incomplete Pairings": {
+        "pairer 1": 1,
+        "pairer 2": 0,
+        "pairer 3": 0,
+        "pairer 4": 0,
+        "pairer 5": 0,
+        "pairer 6": 1,
+        "pairer 7": 1
+    },
+    "Percentage Rejected": {
+        "pairer 1": 0.0,
+        "pairer 2": 0.0,
+        "pairer 3": 0.25,
+        "pairer 4": 0.25,
+        "pairer 5": 0.5,
+        "pairer 6": 0.0,
+        "pairer 7": 0.33,
+        "COMMITTEE": 0.24
+    }
+}
