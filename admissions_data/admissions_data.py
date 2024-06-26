@@ -133,4 +133,4 @@ def get_data(df, beginning_date, end_date):
 
 admissions_data = pd.read_csv(r"path to .csv file here")
 # update admissions_data to the correct file path
-get_data(admissions_data, beginning_date="4/6/2024", end_date=None)
+get_data(admissions_data, beginning_date="1/1/2024", end_date=None)
