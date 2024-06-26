@@ -8,7 +8,10 @@ def get_date(str_date):
     try:
         return datetime.datetime.strptime(str_date, "%m/%d/%Y")
     except:
-        return None
+        try:
+            return datetime.datetime.strptime(str_date, "%m/%d/%y")
+        except:
+            return None
 
 def between_dates(beginning_date, middle_date, end_date):
     # return true if middle_date is in range [beginning_date, end_date]
